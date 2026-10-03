@@ -19,6 +19,7 @@ variable "vnets" {
     name                = string
     location            = string
     resource_group_name = string
+    address_space       = list(string)
   }))
 }
 
@@ -34,23 +35,31 @@ variable "stgs" {
 
 variable "nics" {
   type = map(object({
-    name                          = string
-    location                      = string
-    resource_group_name           = string
-    ip_configuration_name         = string
-    subnet_id                     = string
-    private_ip_address_allocation = string
+    nic_name        = string
+    nic_location    = string
+    nic_rg          = string
+    nic_subnet_name = string
+    nic_vnet_name   = string
   }))
 }
 
 variable "vms" {
   type = map(object({
-    name                = string
-    location            = string
-    resource_group_name = string
-    size                = string
-    admin_username      = string
-    admin_password      = string
-    nic_key             = string
+    vm_nicname             = string
+    vm_name                = string
+    vm_location            = string
+    vm_resource_group_name = string
+    vm_size                = string
+    vm_publisher           = string
+    vm_offer               = string
+    vm_sku                 = string
+    vm_version             = string
+    s_name                 = string
+    s_caching              = string
+    s_create_option        = string
+    s_managed_disk_type    = string
+    o_computer_name        = string
+    vm_admin_username      = string
+    vm_admin_password      = string
   }))
 }
